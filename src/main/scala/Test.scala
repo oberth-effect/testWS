@@ -9,4 +9,9 @@ implicit val dataWriter: Writer[Data] = writer[Map[String, String]].comap(d => M
 
 def main(args: Array[String]): Unit = {
   val ws = WebSocket.url("wss://echo.websocket.events").upickle(OptionPickler).json[Data, Data].build()
+  /*
+  [error] 11 |  val ws = WebSocket.url("wss://echo.websocket.events").upickle(OptionPickler).json[Data, Data].build()
+  [error]    |                                                                                               ^
+  [error]    |No given instance of type Nothing was found for parameter receiveReader of method json in class UpickleBuilder
+   */
 }
